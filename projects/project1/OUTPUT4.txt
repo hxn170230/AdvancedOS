@@ -1,0 +1,122 @@
+(41): Messages Exchanged: 18
+(41): Latency: 12065ms
+
+(81): Messages Exchanged: 18
+(81): Latency: 18119ms
+
+(121): Messages Exchanged: 18
+(121): Latency: 19075ms
+
+(161): Messages Exchanged: 18
+(161): Latency: 21072ms
+
+(202): Messages Exchanged: 18
+(202): Latency: 17059ms
+
+(242): Messages Exchanged: 18
+(242): Latency: 21061ms
+
+(282): Messages Exchanged: 18
+(282): Latency: 18057ms
+
+(322): Messages Exchanged: 18
+(322): Latency: 22064ms
+
+(362): Messages Exchanged: 18
+(362): Latency: 19076ms
+
+(402): Messages Exchanged: 18
+(402): Latency: 21102ms
+
+(442): Messages Exchanged: 18
+(442): Latency: 20071ms
+
+(482): Messages Exchanged: 18
+(482): Latency: 21065ms
+
+(522): Messages Exchanged: 18
+(522): Latency: 20056ms
+
+(563): Messages Exchanged: 18
+(563): Latency: 21069ms
+
+(603): Messages Exchanged: 18
+(603): Latency: 17060ms
+
+(643): Messages Exchanged: 18
+(643): Latency: 18066ms
+
+(683): Messages Exchanged: 18
+(683): Latency: 22071ms
+
+(723): Messages Exchanged: 18
+(723): Latency: 22076ms
+
+(763): Messages Exchanged: 18
+(763): Latency: 18432ms
+
+(803): Messages Exchanged: 18
+(803): Latency: 18063ms
+
+(892): Messages Exchanged: 18
+(892): Latency: 7128ms
+
+(968): Messages Exchanged: 18
+(968): Latency: 8042ms
+
+(1048): Messages Exchanged: 18
+(1048): Latency: 9161ms
+
+(1129): Messages Exchanged: 18
+(1129): Latency: 7073ms
+
+(1206): Messages Exchanged: 18
+(1206): Latency: 7141ms
+
+(1288): Messages Exchanged: 18
+(1288): Latency: 10132ms
+
+(1365): Messages Exchanged: 18
+(1365): Latency: 7125ms
+
+(1428): Messages Exchanged: 18
+(1428): Latency: 2ms
+
+(1488): Messages Exchanged: 18
+(1488): Latency: 2ms
+
+(1548): Messages Exchanged: 18
+(1548): Latency: 2ms
+
+(1612): Messages Exchanged: 18
+(1612): Latency: 2ms
+
+(1671): Messages Exchanged: 18
+(1671): Latency: 2ms
+
+(1730): Messages Exchanged: 18
+(1730): Latency: 3ms
+
+(1789): Messages Exchanged: 18
+(1789): Latency: 2ms
+
+(1853): Messages Exchanged: 18
+(1853): Latency: 3ms
+
+(1916): Messages Exchanged: 18
+(1916): Latency: 2ms
+
+(1976): Messages Exchanged: 18
+(1976): Latency: 1ms
+
+(2040): Messages Exchanged: 18
+(2040): Latency: 2ms
+
+(2100): Messages Exchanged: 18
+(2100): Latency: 2ms
+
+(2163): Messages Exchanged: 18
+(2163): Latency: 5ms
+
+(2176): Total Messages Exchanged: 1441
+(2176): Total messages sent: 721 Total messages received: 720

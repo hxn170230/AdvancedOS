@@ -1,0 +1,20 @@
+TY  - JOUR
+T1  - Termination detection by using distributed snapshots
+JO  - Information Processing Letters
+VL  - 32
+IS  - 3
+SP  - 113
+EP  - 119
+PY  - 1989/8/24/
+T2  - 
+AU  - Huang, Shing-Tsaan
+SN  - 0020-0190
+DO  - http://dx.doi.org/10.1016/0020-0190(89)90010-0
+UR  - //www.sciencedirect.com/science/article/pii/0020019089900100
+KW  - Distributed computation
+KW  - distributed termination
+KW  - distributed snapshot
+AB  - This paper discusses termination detection by using distributed snapshots. An algorithm is presented which is a modification of a recently proposed algorithm (Huang, 1988) The presented algorithm avoids the weak point of the original algorithm, which requires a process to wait for an acknowledgement from the receiver for every basic message sent.
+ER  - 
+
+

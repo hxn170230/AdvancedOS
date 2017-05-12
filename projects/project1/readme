@@ -1,0 +1,81 @@
+INPUT FILES: 
+	conf.h: Header containing data structures and other headers used for distributed computing
+	dcs.c: Program file containing code to implement distributed computing algorithm
+	Makefile: makefile to build the code and link to executable
+
+COMPILATION:
+Have both dcs.c and conf.h in the same directory.
+Run below commands to generate object as well as executable.
+	make -f Makefile
+
+EXECUTABLE: dcs
+
+OUTPUT FILES:
+	OUTPUT<processid>.txt ==> contains the latency and messages exchanged at each stage and at the end of computation.
+	rw.txt ==> File containing critical section operations of processes.
+
+ASSUMPTIONS:
+Tests are run on linux machines.
+Since 10 processes are the requirement, 10 nodes are taken(DC01, DC02, DC03, DC04, DC05, DC06, DC07, DC08, DC09, DC10).
+Distributed System initial setup phase is out of scope. IPs are hardcoded and proceses are to start from 0 to 9 in the same order.
+Mutual Exclusion algorithm doesn't start until all processes are connected to each other.
+There is no recovery mechanism after mutual exclusion starts. Distributed system ends computation even if one process exits during
+execution.
+
+INITIAL CONNECTION PHASE:
+1. Each process connects to server IP address above its IP address in serverIPs and waits for connection from other processes in serverIPs.
+So, it is expected to run dcs in the same order as given below.
+2. After connection to other servers as a client, each process starts its own server and waits for connection from other servers.
+3. Server on receiving connection from a client, checks client state in channel[i].outgoingState and connects to it if state is DISCONNECTED/INITED as client.
+4. On successful connection to all processes(9 processes), each process starts a timer based on random values between [5, 10].
+5. Once timer expires, mutual execution algorithm is run (COMPUTATION START).
+
+Example:
+1. process 0 starts on DC01.
+2. process 0 checks other server IP address above DC01 ip address. Since there are no ip addresses above it, it will stop trying to connect as client.
+3. process 0 starts server and waits for connection.
+4. process 1 starts on DC02.
+5. process 1 checks other server IP addresses above DC02 ip address and finds DC01 ip address. process 1 then connects to DC01 server and starts server on DC02.
+6. process 0 on receiving connection from process 1, process 0 connects to process 1 as client.
+7. Two way connections are established and ready.
+
+INSTRUCTIONS TO RUN DCS(Distributed Computing System):
+Run the following command on terminals of (DC01, DC02, DC03, DC04, DC05, DC06, DC07, DC08, DC09, DC10) in the SAME STRICT order.
+./dcs 0 #==> DC01
+./dcs 1 #==> DC02
+./dcs 2 #==> DC03
+./dcs 3 #==> DC04
+./dcs 4 #==> DC05
+./dcs 5 #==> DC06
+./dcs 6 #==> DC07
+./dcs 7 #==> DC08
+./dcs 8 #==> DC09
+./dcs 9 #==> DC10
+
+FUTURE IMPROVEMENTS:
+1. Improve initial setup phase. IPs are hardcoded to run 10 processes between DC01...DC10. Improvements can be attained by mDns to identify the type of service the server runs and attach to it.
+2. System halts if even one processes gives up. Fault tolerance to be added to recover from such situations and continue with the computation.
+3. Reduce the redundant code in various routines and move it to one routine.
+
+THEORITICAL OBSERVATIONS:
+With given instructions for critical section entry, each process exchanges maximum of 1440(40 rounds critical section entries with 2*(10-1) exchanged per critical section) messages in total.
+Computation ends after process 0 receives 9 COMPUTATION_END messages from rest of the processes and process 0 computation end.
+
+OBSERVATIONS AFTER RUNNING DCS:
+1. Since all processes running PHASE1(10 in phase1, 5 in phase1 when phase2 is running) and/or PHASE2(5 in phase2) fall under [5,10] and [45,50] time interval range, effect of holding the token is not seen.
+2. If only, 2 or 3 processes are run in PHASE1 and/or PHASE2, effect of holding token is seen and messages exchanged during such section entry is zero.
+
+OUTPUTS:
+As seen in OUTPUT<process id>.txt and computed in theoritical observations:
+process 0 sends 720 messages, receives 720 + 9 messages ==> 1440(critical section) + 9(computation end messages)
+process 1 sends 720 + 1 messages, receives 720 messages ==> 1440(critical section) + 1(computation end message)
+process 2 sends 720 + 1 messages, receives 720 messages ==> 1440(critical section) + 1(computation end message)
+process 3 sends 720 + 1 messages, receives 720 messages ==> 1440(critical section) + 1(computation end message)
+process 4 sends 720 + 1 messages, receives 720 messages ==> 1440(critical section) + 1(computation end message)
+process 5 sends 720 + 1 messages, receives 720 messages ==> 1440(critical section) + 1(computation end message)
+process 6 sends 720 + 1 messages, receives 720 messages ==> 1440(critical section) + 1(computation end message)
+process 7 sends 720 + 1 messages, receives 720 messages ==> 1440(critical section) + 1(computation end message)
+process 8 sends 720 + 1 messages, receives 720 messages ==> 1440(critical section) + 1(computation end message)
+process 9 sends 720 + 1 messages, receives 720 messages ==> 1440(critical section) + 1(computation end message)
+
+rw.txt ==> contains the critical section entry of each process and its timestamp
